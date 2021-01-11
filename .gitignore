@@ -1,0 +1,6 @@
+node_modules
+
+# config
+
+app/config/dev.js
+app/config/db.config.js/
