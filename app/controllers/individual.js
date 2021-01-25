@@ -23,6 +23,12 @@ exports.create = (req, res) => {
     {
       id: req.body.mother,
       role: 'mother'
-    }]
+    }],
+    contact: {
+      address: req.body.address,
+      phone: req.body.phone,
+      email: req.body.email
+    }
   })
+
 }

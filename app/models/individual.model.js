@@ -25,6 +25,13 @@ module.exports = mongoose => {
         date: Date,
         place: String
       },
+
+      contact: {
+        address: String,
+        phone: String,
+        email: String
+
+      }
       /*   partnerships: [
                 {
                   ids:String

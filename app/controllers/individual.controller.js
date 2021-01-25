@@ -37,12 +37,16 @@ exports.create = (req, res) => {
       date: req.body.dateOfDeath,
       place: req.body.placeOfDeath
     },
-
+    contact: {
+      address: req.body.address,
+      phone: req.body.phone,
+      email: req.body.email
+    }
   })
 
-  // Save Tutorial in the database
+   // Save Tutorial in the database
   individual
-    .save(individual)
+    .save()
     .then(data => {
       res.send(data);
     })
@@ -51,9 +55,8 @@ exports.create = (req, res) => {
         message:
           err.message || "Some error occurred while creating the Individual."
       });
-    });
-};
-
+    }); 
+  }
 // Retrieve all Individuals from the database.
 exports.findAll = (req, res) => {
 
