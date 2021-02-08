@@ -7,5 +7,6 @@ const db = {};
 db.mongoose = mongoose;
 db.url = dbConfig.mongoURI;
 db.individuals = require('./individual.model.js')(mongoose);
+db.partnerships = require('./partnership.model.js')(mongoose);
 
 module.exports = db;

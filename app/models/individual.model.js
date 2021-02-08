@@ -32,16 +32,7 @@ module.exports = mongoose => {
         email: String
 
       }
-      /*   partnerships: [
-                {
-                  ids:String
-                }
-              ],
-              children: [
-                {
-                  id: String
-                }
-              ]*/
+
     }
   ));
   return Individual;

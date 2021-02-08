@@ -6,7 +6,8 @@ module.exports = mongoose => {
         partnerships: [
           {
             type: { type: String, enum: ['marriage', 'living together', 'Other'], default: 'marriage' },
-            date: Date,
+            date_starts: Date,
+            date__ends: Date,
             place: String,
             individuals: [
               {

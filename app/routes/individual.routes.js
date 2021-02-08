@@ -19,3 +19,15 @@ module.exports = app => {
 
   router.delete("/", individuals.deleteAll); // Delete a new Individual
 }
+
+
+/*
+create a new Individual: object.save()
+find a Individual by id: findById(id)
+retrieve all Individuals: find()
+update a Individual by id: findByIdAndUpdate(id, data)
+remove a Individual: findByIdAndRemove(id)
+remove all Individuals: deleteMany()
+find all Individuals by title: find({ title: { $regex: new RegExp(title), $options: “i” } })
+
+*/

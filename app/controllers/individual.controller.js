@@ -44,6 +44,8 @@ exports.create = (req, res) => {
     }
   })
 
+  
+
    // Save Tutorial in the database
   individual
     .save()
@@ -98,6 +100,25 @@ exports.update = (req, res) => {
 
 // Delete a Individal with the specified id in the request
 exports.delete = (req, res) => {
+  const id = req.params.id;
+
+  Individual.findByIdAndRemove(id)
+    .then(data => {
+      if (!data) {
+        res.status(404).send({
+          message: `Cannot delete Individual with id=${id}. Maybe Individual was not found!`
+        });
+      } else {
+        res.send({
+          message: "Individual was deleted successfully!"
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Could not delete Individual with id=" + id
+      });
+    });
 
 };
 
