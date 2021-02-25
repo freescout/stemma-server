@@ -95,6 +95,32 @@ exports.findOne = (req, res) => {
 
 // Update a Individual by the id in the request
 exports.update = (req, res) => {
+  if (!req.body) {
+    return res.status(400).send({
+      message: "Data to update can not be empty!"
+    });
+  }
+  
+
+  const id = req.params.id;
+  Individual.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+
+    .then(data => {
+      if (!data) {
+        res.status(404).send({
+          message: `Cannot update Individual with id=${id}. Maybe Tutorial was not found!`
+        });
+      } else res.send({ message: "Individual was updated successfully." });
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error updating Individual with id=" + id
+      });
+    });
+
+// `doc` is the document _after_ `update` was applied because of
+// `returnOriginal: false`
+
 
 };
 
