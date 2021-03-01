@@ -124,6 +124,23 @@ exports.update = (req, res) => {
 
 };
 
+// Retrieve a single Individual with id
+exports.findOne = (req, res) => {
+  const id = req.params.id;
+
+  Individual.findById(id)
+    .then(data => {
+      if (!data)
+        res.status(404).send({ message: "Not found Individual with id " + id });
+      else res.send(data);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .send({ message: "Error retrieving Individual with id=" + id });
+    });
+};
+
 // Delete a Individal with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
